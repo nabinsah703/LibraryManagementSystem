@@ -47,5 +47,35 @@ namespace LMS_LibraryTraining
 
             }
         }
+
+        protected void btnAdminLogin_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("sp_adminLogin", DBConnect.GetConnection());
+            DBConnect.OpenConn();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            //cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@username", txtAdminID.Text.Trim());
+            cmd.Parameters.AddWithValue("@password", txtAdminpassword.Text.Trim());
+            SqlDataReader dr = cmd.ExecuteReader();
+
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    Response.Write("<script> alert('Login Successfully'); </script>");
+                    Session["Adminrole"] = "Admin";
+                    Session["Adminfullname"] = dr.GetValue(2).ToString();
+                    Session["Adminusername"] = dr.GetValue(0).ToString();
+                }
+                Response.Redirect("~/Admin/AdminHome.aspx");
+
+            }
+            else
+            {
+                Response.Write("<script> alert('Invalid Credential... try again'); </script>");
+
+            }
+        }
     }
 }
