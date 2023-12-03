@@ -1,13 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="LMS_LibraryTraining.Site1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="LMS_LibraryTraining.SignUp" %>
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Library</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width-device, initial-scale=1" />
-
+    <title>Sign Up</title>
     <%-- 1 BootStrap css--%>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <%--2 datatabel css--%>
@@ -20,16 +17,12 @@
     <script src="bootstrap/js/popper.min.js"></script>
     <%--6 Bootstrap js--%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="default.aspx">
                     <img src="LogoIcon/books_library_1767.ico" alt="logo" width="49" height="49" />LMS Application </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -58,8 +51,8 @@
                     <!-- right menu-->
 
                     <div class="pmd-navbar-right-icon ml-auto">
-                        <a class="btn btn-sm btn-primary" href="SignUp.aspx">Sign Up</a>
-                        <a class="btn btn-sm btn-primary" href="Login.aspx">Login</a>
+                        <%--<a class="btn btn-sm btn-primary" href="#">Sign Up</a>--%>
+                        <a class="btn btn-sm btn-primary" href="Login.aspx">Log In</a>
                     </div>
                 </div>
             </nav>
@@ -92,8 +85,11 @@
                         </ul>
                     </div>
                     <div class="col-sm-10 border border-info">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
+                        <!-- Sign up code here-->
+
+
+                        <!-- End code here -->
+
                     </div>
                 </div>
 
@@ -136,7 +132,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 fa-copyright border-dark">
-                            <p class="text-center"> &copy; Copright 2023 - Navin Sah Library. All rights reserved.</p>
+                            <p class="text-center">&copy; Copright 2023 - Navin Sah Library. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
