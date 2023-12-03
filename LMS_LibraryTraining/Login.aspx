@@ -147,7 +147,7 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <asp:Button ID="btnLogin" CssClass="btn btn-block btn-success btn-lg" runat="server" Text="Log In" />
+                                                                    <asp:Button ID="btnLogin" CssClass="btn btn-block btn-success btn-lg" runat="server" Text="Log In" OnClick="btnLogin_Click" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <a href="SignUp.aspx">
