@@ -2152,6 +2152,7 @@
     <Content Include="LogoIcon\admin.png" />
     <Content Include="LogoIcon\books_library_1767.ico" />
     <Content Include="LogoIcon\user.png" />
+    <Content Include="SignOut.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="SlideImg\chicago.jpg" />
     <Content Include="SlideImg\washington.jpg" />
@@ -2179,6 +2180,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

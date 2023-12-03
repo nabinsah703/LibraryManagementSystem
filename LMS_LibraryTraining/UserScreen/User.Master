@@ -56,9 +56,10 @@
                     <!-- right menu-->
 
                     <div class="pmd-navbar-right-icon ml-auto">
-                        <a class="btn btn-sm btn-primary" href="#">Sign Out</a>
                         <a id="signup" class="btn btn-sm btn-primary" href="#">
                             <asp:Label ID="lblUserName" runat="server" Text="Name" ForeColor="Red"></asp:Label></a>
+                        <a class="btn btn-sm btn-primary" href="../SignOut.aspx">Sign Out</a>
+
                         <%--<a class="btn btn-sm btn-primary" href="Login.aspx">Login</a>--%>
                     </div>
                 </div>
