@@ -87,12 +87,139 @@
                     <div class="col-sm-10 border border-info">
                         <!-- Sign up code here-->
 
+                        <div class="container mt-3">
+                            <h2>Sign Up Screen</h2>
+                            <br />
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#signup">Create New Account</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="signup" class="container tab-pane active">
+                                    <br />
+                                    <h3>Create New Account</h3>
+                                    <p></p>
+
+                                    <!--design Login form -->
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 mx-auto">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <center>
+                                                                    <img src="LogoIcon/user.png" alt="user img" width="150" />
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <center>
+                                                                    <h3>Member/User Sign Up</h3>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <hr />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <label>Member ID</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtMemberID" placeHolder="Member ID" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                                <label>Password</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtPassword" placeHolder="Password" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Valid Password" ControlToValidate="txtPassword" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                </div>
+                                                                <label>Full Name</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtFullname" placeHolder="Full Name" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Full Name" ControlToValidate="txtFullname" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                </div>
+
+
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>Contact No.</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtContact" placeHolder="Contact No" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                                <label>Email Address</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtEmail" placeHolder="Email ID" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter valid Email ID" ControlToValidate="txtEmail" SetFocusOnError="True" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter valid Email ID" ControlToValidate="txtEmail" SetFocusOnError="True" ForeColor="Red" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                                </div>
+                                                                <label>Date of Birth</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtDob" placeHolder="Date of Birth" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label>Pin Code</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtpincode" placeHolder="Pin code" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>State</label>
+                                                                    <asp:DropDownList ID="ddlstate" CssClass="form-control" runat="server"></asp:DropDownList>
+
+                                                                </div>
+                                                                <label>City</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtCity" placeHolder="City" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <label>Full Address</label>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="txtfulladdress" placeHolder="Full Address" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <asp:Button ID="btnsignup" CssClass="btn btn-block btn-success btn-lg" runat="server" Text="Sign Up" OnClick="btnsignup_Click" />
+                                                                </div>
+                                                            </div>
+                                                            <%-- <div class="form-group">
+                                                                <a href="SignUp.aspx">
+                                                                    <input type="button" class="btn btn-block btn-lg btn-info" value="Sign Up" />
+                                                                </a>
+                                                            </div>--%>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <a href="#"><< Back to Home Page</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--end login form-->
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- End code here -->
 
                     </div>
-                </div>
 
+                </div>
             </div>
 
             <div class="jumbotron text-center alert alert-danger" style="margin-bottom: 0; border: 2px solid red">

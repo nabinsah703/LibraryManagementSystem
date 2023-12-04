@@ -20,11 +20,11 @@ namespace LMS_LibraryTraining
 
             if (ex.InnerException != null)
             {
-                Response.Redirect("../ErrorPage.aspx?ErrorMessage=" + ex.InnerException.Message);
+                Response.Redirect("ErrorPage.aspx?ErrorMessage=" + ex.InnerException.Message);
             }
             else
             {
-                Response.Redirect("../ErrorPage.aspx?ErrorMessage=" + ex.Message);
+                Response.Redirect("ErrorPage.aspx?ErrorMessage=" + ex.Message);
 
             }
         }
