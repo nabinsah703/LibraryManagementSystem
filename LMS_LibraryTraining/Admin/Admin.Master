@@ -41,7 +41,7 @@
                             <a class="nav-link" href="AddAuthor.aspx"><b>Add Author</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Library Application</b></a>
+                            <a class="nav-link" href="AddPublisher.aspx"><b>Publisher</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><b>Archives</b></a>

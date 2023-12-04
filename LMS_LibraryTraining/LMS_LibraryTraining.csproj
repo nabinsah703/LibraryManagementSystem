@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AddAuthor.aspx" />
+    <Content Include="Admin\AddPublisher.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -2171,6 +2172,13 @@
     </Compile>
     <Compile Include="Admin\AddAuthor.aspx.designer.cs">
       <DependentUpon>AddAuthor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddPublisher.aspx.cs">
+      <DependentUpon>AddPublisher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddPublisher.aspx.designer.cs">
+      <DependentUpon>AddPublisher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
