@@ -12,7 +12,7 @@ namespace LMS_LibraryTraining.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty((string)Session["Adminrole"]) && Session["Adminrole"].Equals("Admin"))
+            if (Session["Adminrole"] != null && Session["Adminrole"].Equals("Admin"))
             {
                 if (!IsPostBack)
                 {

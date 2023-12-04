@@ -11,7 +11,7 @@ namespace LMS_LibraryTraining.UserScreen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty((string)Session["role"]) && Session["role"].Equals("user"))
+            if ((string)Session["role"] != null && Session["role"].Equals("user"))
             {
                 if (!IsPostBack)
                 {
