@@ -98,7 +98,7 @@ namespace LMS_LibraryTraining
             {
                 int r;
                 conn.OpenConn();
-                SqlCommand cmd = new SqlCommand("select max(member_id) as ID from member_master_tbl", conn.GetConnection());
+                 cmd = new SqlCommand("select max(member_id) as ID from member_master_tbl", conn.GetConnection());
                 SqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
