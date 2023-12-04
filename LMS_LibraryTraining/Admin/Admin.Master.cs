@@ -11,9 +11,17 @@ namespace LMS_LibraryTraining.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            if (string.IsNullOrEmpty((string)Session["Adminrole"]) && Session["Adminrole"].Equals("Admin"))
             {
-                lblUserName.Text = Session["Adminfullname"].ToString();
+                if (!IsPostBack)
+                {
+                    lblUserName.Text = Session["Adminfullname"].ToString();
+                }
+            }
+            else
+            {
+                Response.Redirect("SignOut.aspx");
             }
 
         }

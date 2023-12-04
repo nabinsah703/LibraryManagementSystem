@@ -75,6 +75,7 @@
     <Content Include="datatable\css\jquery.dataTables.min.css" />
     <Content Include="datatable\js\jquery.dataTables.min.js" />
     <Content Include="default.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="fontawesome\css\all.css" />
     <Content Include="fontawesome\css\all.min.css" />
     <Content Include="fontawesome\css\brands.css" />
@@ -2152,6 +2153,7 @@
     <Content Include="Login.aspx" />
     <Content Include="LogoIcon\admin.png" />
     <Content Include="LogoIcon\books_library_1767.ico" />
+    <Content Include="LogoIcon\Pure-CSS-404-Error-Page.png" />
     <Content Include="LogoIcon\user.png" />
     <Content Include="SignOut.aspx" />
     <Content Include="SignUp.aspx" />
@@ -2183,6 +2185,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

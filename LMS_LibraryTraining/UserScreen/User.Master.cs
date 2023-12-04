@@ -11,11 +11,17 @@ namespace LMS_LibraryTraining.UserScreen
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (string.IsNullOrEmpty((string)Session["role"]) && Session["role"].Equals("user"))
             {
-                lblUserName.Text = Session["fullname"].ToString();
+                if (!IsPostBack)
+                {
+                    lblUserName.Text = Session["fullname"].ToString();
+                }
             }
-
+            else
+            {
+                Response.Redirect("SignOut.aspx");
+            }
         }
     }
 }
