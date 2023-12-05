@@ -70,6 +70,7 @@
     <Content Include="Admin\AddAuthor.aspx" />
     <Content Include="Admin\AddPublisher.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\updateMemberStatus.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.3.1.slim.min.js" />
@@ -2193,6 +2194,13 @@
     </Compile>
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\updateMemberStatus.aspx.cs">
+      <DependentUpon>updateMemberStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\updateMemberStatus.aspx.designer.cs">
+      <DependentUpon>updateMemberStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="default.aspx.cs">

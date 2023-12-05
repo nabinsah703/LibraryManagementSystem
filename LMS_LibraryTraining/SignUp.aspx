@@ -170,8 +170,8 @@
                                                                 <div class="form-group">
                                                                     <asp:TextBox ID="txtpincode" placeHolder="Pin code" CssClass="form-control" runat="server"></asp:TextBox>
                                                                 </div>
+                                                                <label>State</label>
                                                                 <div class="form-group">
-                                                                    <label>State</label>
                                                                     <asp:DropDownList ID="ddlstate" CssClass="form-control" runat="server"></asp:DropDownList>
 
                                                                 </div>
