@@ -123,7 +123,17 @@
                                 <EditItemTemplate>
                                     <asp:Label ID="lblEidtstate" Visible="false" runat="server" Text='<%# Eval("state") %>'></asp:Label>
 
-                                    <asp:DropDownList ID="ddlEditstate" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEditstate" runat="server">
+                                        <asp:ListItem Value="Please Select" Text="Select" />
+                                        <asp:ListItem Value="Koshi" Text="Koshi" />
+                                        <asp:ListItem Value="Madhesh" Text="Madhesh" />
+                                        <asp:ListItem Value="Bagmati" Text="Bagmati" />
+                                        <asp:ListItem Value="Gandaki" Text="Gandaki" />
+                                        <asp:ListItem Value="Lumbini" Text="Lumbini" />
+                                        <asp:ListItem Value="Karnali" Text="Karnali" />
+                                        <asp:ListItem Value="Sundar Paschim" Text="Sundar Paschim" />
+
+                                    </asp:DropDownList>
                                 </EditItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Pin Code">

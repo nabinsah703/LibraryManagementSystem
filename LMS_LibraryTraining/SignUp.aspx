@@ -172,7 +172,16 @@
                                                                 </div>
                                                                 <label>State</label>
                                                                 <div class="form-group">
-                                                                    <asp:DropDownList ID="ddlstate" CssClass="form-control" runat="server"></asp:DropDownList>
+                                                                    <asp:DropDownList ID="ddlstate" CssClass="form-control" runat="server">
+                                                                        <asp:ListItem Value="Please Select" Text="Select" />
+                                                                        <asp:ListItem Value="Koshi" Text="Koshi" />
+                                                                        <asp:ListItem Value="Madhesh" Text="Madhesh" />
+                                                                        <asp:ListItem Value="Bagmati" Text="Bagmati" />
+                                                                        <asp:ListItem Value="Gandaki" Text="Gandaki" />
+                                                                        <asp:ListItem Value="Lumbini" Text="Lumbini" />
+                                                                        <asp:ListItem Value="Karnali" Text="Karnali" />
+                                                                        <asp:ListItem Value="Sundar Paschim" Text="Sundar Paschim" />
+                                                                    </asp:DropDownList>
 
                                                                 </div>
                                                                 <label>City</label>
