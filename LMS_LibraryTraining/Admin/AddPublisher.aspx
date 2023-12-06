@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <asp:Button ID="btnAdd" Text="Add" CssClass="btn btn-success" Width="120" Height="40" runat="server" OnClick="btnAdd_Click" />
                     <asp:Button ID="btnUpdate" Text="Update" runat="server" Width="120" Height="40" CssClass="btn btn-success" OnClick="btnUpdate_Click" Visible="false" />
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-danger" Width="120" Height="40" OnClick="btnCancel_Click" Visible="false"/>
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-danger" Width="120" Height="40" OnClick="btnCancel_Click" Visible="false" />
                 </div>
             </div>
             <div class="col-8 border border-success mt-3 mb-3">
@@ -47,18 +47,18 @@
                                 <td><%#Eval("publisher_name") %></td>
                                 <td style="width: 20%">
                                     <asp:LinkButton ID="lnkEdit" class="table-link text-primary" CommandArgument='<%#Eval("publisher_id")%>' CommandName="edit" ToolTip="Record Edit" runat="server">
-                 <span class="fa-stack">
-                     <i class="fa fa-square fa-stack-2x"></i>
-                     <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                     <span class="fa-stack">
+                                         <i class="fa fa-square fa-stack-2x"></i>
+                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 
-                 </span>
+                                     </span>
                                     </asp:LinkButton>
                                     <asp:LinkButton ID="lnkdelete" class="table-link text-danger" CommandArgument='<%#Eval("publisher_id")%>' CommandName="delete" ToolTip="Record Delete" Text="Delete" runat="server" OnClientClick="return confirm('Do you want to delete record')">
-                  <span class="fa-stack">
-                      <i class="fa fa-square fa-stack-2x"></i>
-                      <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                          <span class="fa-stack">
+                                              <i class="fa fa-square fa-stack-2x"></i>
+                                              <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
 
-                  </span>
+                                          </span>
                                     </asp:LinkButton>
                                 </td>
                             </tr>

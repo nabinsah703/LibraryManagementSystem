@@ -16,6 +16,19 @@ namespace LMS_LibraryTraining.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!this.IsPostBack)
+            {
+                BindGridView();
+            }
+        }
+
+        private void BindGridView()
+        {
+            cmd = new SqlCommand("sp_getMemberAllRecord", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            GridView1.DataSource = Load_Data(cmd);
+            GridView1.DataBind();
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -134,6 +147,64 @@ namespace LMS_LibraryTraining.Admin
             else
             {
                 Response.Write("<script> alert(' Validation Error... try again'); </script>");
+            }
+        }
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            BindGridView();
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            BindGridView();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int id = int.Parse(GridView1.Rows[e.RowIndex].Cells[0].Text);
+            string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
+
+            string dob = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
+            string contact = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
+            string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
+            string state = ((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text;
+            string pincode = ((TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0]).Text;
+            string fulladdress = ((TextBox)GridView1.Rows[e.RowIndex].Cells[7].Controls[0]).Text;
+            string city = ((TextBox)GridView1.Rows[e.RowIndex].Cells[8].Controls[0]).Text;
+
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            BindGridView();
+        }
+        public DataTable Load_Data(SqlCommand sqlCommand)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                da.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                dt.Dispose();
+                da.Dispose();
+                conn.CloseConn();
             }
         }
     }
