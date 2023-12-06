@@ -104,6 +104,8 @@ namespace LMS_LibraryTraining.Admin
                 {
                     Response.Write("<script> alert(' Record not Updated... try again'); </script>");
                 }
+                conn.CloseConn();
+                BindGridView();
             }
             else
             {
@@ -163,21 +165,65 @@ namespace LMS_LibraryTraining.Admin
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            Label mid = (Label)GridView1.Rows[e.RowIndex].FindControl("lblDisplayID");
+            int ID = Convert.ToInt32(mid.Text);
+
+
+            cmd = new SqlCommand("sp_deleteMemberRecord", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@member_id", ID);
+            conn.OpenConn();
+            cmd.ExecuteNonQuery();
+            conn.CloseConn();
+            BindGridView();
 
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int id = int.Parse(GridView1.Rows[e.RowIndex].Cells[0].Text);
-            string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
+            // this code is woking when we use DataBound field in .aspx file 
+            //int id = int.Parse(GridView1.Rows[e.RowIndex].Cells[0].Text);
+            //string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
 
-            string dob = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
-            string contact = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
-            string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
-            string state = ((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text;
-            string pincode = ((TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0]).Text;
-            string fulladdress = ((TextBox)GridView1.Rows[e.RowIndex].Cells[7].Controls[0]).Text;
-            string city = ((TextBox)GridView1.Rows[e.RowIndex].Cells[8].Controls[0]).Text;
+            //string dob = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
+            //string contact = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
+            //string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
+            //string state = ((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text;
+            //string pincode = ((TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0]).Text;
+            //string fulladdress = ((TextBox)GridView1.Rows[e.RowIndex].Cells[7].Controls[0]).Text;
+            //string city = ((TextBox)GridView1.Rows[e.RowIndex].Cells[8].Controls[0]).Text;
+
+            Label mid = (Label)GridView1.Rows[e.RowIndex].FindControl("lblDisplayID");
+            int ID = Convert.ToInt32(mid.Text);
+
+            TextBox updatetxtname = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditName");
+            TextBox updatetxtdob = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditdob");
+            TextBox updatetxtcontact = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditcontact");
+            TextBox updatetxtemail = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditemail");
+            DropDownList updatetxtstate = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddlEditstate");
+            TextBox updatetxtpincode = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditpincode");
+            TextBox updatetxtfulladdress = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditaddress");
+            TextBox updatetxtcity = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txtEditcity");
+
+            cmd = new SqlCommand("sp_UpdateMemberRecord", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@full_name", updatetxtname.Text);
+            cmd.Parameters.AddWithValue("@dob", updatetxtdob.Text);
+            cmd.Parameters.AddWithValue("@contact_no", updatetxtcontact.Text);
+            cmd.Parameters.AddWithValue("@email", updatetxtemail.Text);
+            cmd.Parameters.AddWithValue("@state", updatetxtstate.SelectedItem.Text);
+            cmd.Parameters.AddWithValue("@pincode", updatetxtpincode.Text);
+            cmd.Parameters.AddWithValue("@full_address", updatetxtfulladdress.Text);
+            cmd.Parameters.AddWithValue("@city", updatetxtcity.Text);
+            cmd.Parameters.AddWithValue("@member_id", ID);
+            conn.OpenConn();
+            cmd.ExecuteNonQuery();
+            conn.CloseConn();
+            GridView1.EditIndex = -1;
+            BindGridView();
+
 
         }
 
@@ -205,6 +251,16 @@ namespace LMS_LibraryTraining.Admin
                 dt.Dispose();
                 da.Dispose();
                 conn.CloseConn();
+            }
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && GridView1.EditIndex == e.Row.RowIndex)
+            {
+                DropDownList ddlEditStateValue = (DropDownList)e.Row.FindControl("ddlEditstate");
+                Label lblstate = (Label)e.Row.FindControl("lblEidtstate");
+                ddlEditStateValue.SelectedValue = lblstate.Text;
             }
         }
     }
