@@ -47,7 +47,7 @@
                             <a class="nav-link" href="updateMemberStatus.aspx"><b>Member Status</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Contact Us</b></a>
+                            <a class="nav-link" href="AdminBookInventry.aspx"><b>Book Inventory</b></a>
                         </li>
 
                     </ul>

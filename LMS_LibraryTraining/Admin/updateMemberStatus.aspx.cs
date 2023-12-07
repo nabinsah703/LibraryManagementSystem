@@ -27,7 +27,7 @@ namespace LMS_LibraryTraining.Admin
             cmd = new SqlCommand("sp_getMemberAllRecord", conn.GetConnection());
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Clear();
-            GridView1.DataSource = Load_Data(cmd);
+            GridView1.DataSource = conn.Load_Data(cmd);
             GridView1.DataBind();
         }
 
@@ -231,27 +231,6 @@ namespace LMS_LibraryTraining.Admin
         {
             GridView1.EditIndex = e.NewEditIndex;
             BindGridView();
-        }
-        public DataTable Load_Data(SqlCommand sqlCommand)
-        {
-            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-            DataTable dt = new DataTable();
-
-            try
-            {
-                da.Fill(dt);
-                return dt;
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                dt.Dispose();
-                da.Dispose();
-                conn.CloseConn();
-            }
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

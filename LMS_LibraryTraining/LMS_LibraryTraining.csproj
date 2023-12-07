@@ -71,6 +71,8 @@
     <Content Include="Admin\AddPublisher.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
     <Content Include="Admin\updateMemberStatus.aspx" />
+    <Content Include="Admin\AdminBookInventry.aspx" />
+    <Content Include="book_img\images.jpg" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.3.1.slim.min.js" />
@@ -2201,6 +2203,13 @@
     </Compile>
     <Compile Include="Admin\updateMemberStatus.aspx.designer.cs">
       <DependentUpon>updateMemberStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBookInventry.aspx.cs">
+      <DependentUpon>AdminBookInventry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBookInventry.aspx.designer.cs">
+      <DependentUpon>AdminBookInventry.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="default.aspx.cs">
