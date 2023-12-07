@@ -70,6 +70,7 @@
     <Content Include="Admin\AddAuthor.aspx" />
     <Content Include="Admin\AddPublisher.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\BookIssueReturn.aspx" />
     <Content Include="Admin\updateMemberStatus.aspx" />
     <Content Include="Admin\AdminBookInventry.aspx" />
     <Content Include="book_img\images.jpg" />
@@ -2196,6 +2197,13 @@
     </Compile>
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BookIssueReturn.aspx.cs">
+      <DependentUpon>BookIssueReturn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookIssueReturn.aspx.designer.cs">
+      <DependentUpon>BookIssueReturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\updateMemberStatus.aspx.cs">
       <DependentUpon>updateMemberStatus.aspx</DependentUpon>

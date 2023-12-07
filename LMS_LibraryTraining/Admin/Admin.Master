@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="AdminBookInventry.aspx"><b>Book Inventory</b></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="BookIssueReturn.aspx"><b>Issue/Return</b></a>
+                        </li>
 
                     </ul>
                     <!-- right menu-->
@@ -69,7 +72,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                   <%-- <div class="col-sm-2 border border-info">
+                    <%-- <div class="col-sm-2 border border-info">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Active</a>
