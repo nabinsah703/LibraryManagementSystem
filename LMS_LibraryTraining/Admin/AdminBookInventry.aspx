@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img id="imgView" src="../LogoIcon/books_library_1767.ico" alt="" height="200" width="200" />
+                                    <asp:Image ID="imgPhoto" runat="server" ImageUrl="../LogoIcon/books_library_1767.ico" alt="" Height="200" Width="200" />
                                 </center>
                             </div>
                         </div>
