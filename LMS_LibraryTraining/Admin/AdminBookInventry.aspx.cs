@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace LMS_LibraryTraining.Admin
         DBConnect conn = new DBConnect();
         SqlCommand cmd;
         static int actual_stock, current_stock, issued_books;
+        string filepath;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -44,7 +46,31 @@ namespace LMS_LibraryTraining.Admin
 
         protected void btnbookadd_Click(object sender, EventArgs e)
         {
-            AddBook();
+            if (checkDuplicationBook())
+            {
+                Response.Write("<script>alert('Book Already Exists')</script>");
+            }
+            else
+            {
+                AddBook();
+            }
+        }
+
+        private bool checkDuplicationBook()
+        {
+
+            cmd = new SqlCommand("sp_getBookByID", conn.GetConnection());
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@book_id", txtbookid.Text);
+            DataTable dt2 = new DataTable();
+            dt2 = conn.Load_Data(cmd);
+
+            if (dt2.Rows.Count > 0)
+            {
+                return true;
+            }
+            else { return false; }
         }
 
         protected void btnbookupdate_Click(object sender, EventArgs e)
@@ -59,6 +85,7 @@ namespace LMS_LibraryTraining.Admin
 
         protected void btngo_Click(object sender, EventArgs e)
         {
+            SearchBook();
 
         }
 
@@ -146,6 +173,57 @@ namespace LMS_LibraryTraining.Admin
             ddlauthor.SelectedIndex = ddlpublishername.SelectedIndex = -1;
             FileUpload1.PostedFile.InputStream.Dispose();
 
+        }
+
+        private void SearchBook()
+        {
+            cmd = new SqlCommand("sp_getBookByID", conn.GetConnection());
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@book_id", txtbookid.Text);
+            DataTable dt2 = new DataTable();
+            dt2 = conn.Load_Data(cmd);
+
+            if (dt2.Rows.Count > 0)
+            {
+                txtbookname.Text = dt2.Rows[0]["book_name"].ToString();
+                txtpublishdate.Text = dt2.Rows[0]["publisher_date"].ToString();
+                txtedition.Text = dt2.Rows[0]["edition"].ToString();
+                txtbookcost.Text = dt2.Rows[0]["book_cost"].ToString().Trim();
+                txtpages.Text = dt2.Rows[0]["no_of_pages"].ToString().Trim();
+                txtactualstock.Text = dt2.Rows[0]["actual_stock"].ToString().Trim();
+                txtcurrentstock.Text = dt2.Rows[0]["current_stock"].ToString().Trim();
+                txtbookdescription.Text = dt2.Rows[0]["book_description"].ToString();
+                txtissuebook.Text = "" + (Convert.ToInt32(dt2.Rows[0]["actual_stock"].ToString()) - Convert.ToInt32(dt2.Rows[0]["current_stock"].ToString()));
+
+                ddllanguage.SelectedValue = dt2.Rows[0]["language"].ToString().Trim();
+                ddlauthor.SelectedValue = dt2.Rows[0]["author_name"].ToString().Trim();
+                ddlpublishername.SelectedValue = dt2.Rows[0]["publisher_name"].ToString().Trim();
+
+                ListBoxGenre.ClearSelection();
+                string[] genre = dt2.Rows[0]["genre"].ToString().Trim().Split(',');
+                for (int i = 0; i < genre.Length; i++)
+                {
+                    for (int j = 0; j < ListBoxGenre.Items.Count; j++)
+                    {
+                        if (ListBoxGenre.Items[j].ToString() == genre[i])
+                        {
+                            ListBoxGenre.Items[j].Selected = true;
+                        }
+                    }
+                }
+
+                actual_stock = Convert.ToInt32(dt2.Rows[0]["actual_stock"].ToString().Trim());
+                current_stock = Convert.ToInt32(dt2.Rows[0]["current_stock"].ToString().Trim());
+                issued_books = actual_stock - current_stock;
+                filepath = dt2.Rows[0]["book_img_lin"].ToString();
+
+
+            }
+            else
+            {
+                Response.Write("<script>alert('No Book Record found!!!!!!')</script>");
+            }
         }
     }
 }
