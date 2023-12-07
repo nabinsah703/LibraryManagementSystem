@@ -20,6 +20,7 @@ namespace LMS_LibraryTraining.Admin
         {
             if (!this.IsPostBack)
             {
+                BindBookData();
                 AutoGenerate();
                 Bind_Author_Publisher();
             }
@@ -123,7 +124,18 @@ namespace LMS_LibraryTraining.Admin
             }
             ClearControl();
             AutoGenerate();
+            BindBookData();
 
+
+        }
+        private void BindBookData()
+        {
+            cmd = new SqlCommand("sp_Insert_update_delete_bookInventory", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@statementType", "Select");
+            cmd.Parameters.AddWithValue("@book_id", txtbookid.Text);
+            GridView1.DataSource = conn.Load_Data(cmd);
+            GridView1.DataBind();
         }
         public void AddParameter()
         {
@@ -170,6 +182,9 @@ namespace LMS_LibraryTraining.Admin
                 Response.Write("<script>alert('Added succcessfully')</script>");
                 ClearControl();
                 AutoGenerate();
+                BindBookData();
+
+
 
             }
             else
@@ -249,6 +264,7 @@ namespace LMS_LibraryTraining.Admin
             {
                 Response.Write("<script>alert('Book Not Updated!!!!!!')</script>");
             }
+            BindBookData();
             ClearControl();
             AutoGenerate();
         }
