@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../datatable/js/jquery.dataTables.min.js"></script>
-    
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-    });
-</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -86,7 +86,7 @@
                             <div class="col-md-6">
                                 <label>Due Date</label>
                                 <div class="form-group">
-                                    <asp:Button ID="btnreturnbook" CssClass="btn btn-lg btn-block btn-success" runat="server" Text="Return Book" OnClick="btnreturnbook_Click"/>
+                                    <asp:Button ID="btnreturnbook" CssClass="btn btn-lg btn-block btn-success" runat="server" Text="Return Book" OnClick="btnreturnbook_Click" />
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <asp:GridView AutoGenerateColumns="false" Font-Size="Smaller" EmptyDataText="No Record Found..." CssClass="table table-striped table-bordered" ID="GridView1" runat="server">
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="Smaller" EmptyDataText="No Record Found..." CssClass="table table-striped table-bordered" ID="GridView1" runat="server" OnRowDataBound="GridView1_RowDataBound">
                                     <Columns>
                                         <asp:BoundField DataField="member_id" HeaderText="Member ID" SortExpression="member_id" />
                                         <asp:BoundField DataField="member_name" HeaderText="Member Name" SortExpression="member_name" />
