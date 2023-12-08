@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="BookIssueReturn.aspx.cs" Inherits="LMS_LibraryTraining.Admin.BookIssueReturn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../datatable/js/jquery.dataTables.min.js"></script>
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -104,7 +111,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <asp:GridView AutoGenerateColumns="false" EmptyDataText="No Record Found..." CssClass="table table-striped table-bordered" ID="GridView1" runat="server">
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="Smaller" EmptyDataText="No Record Found..." CssClass="table table-striped table-bordered" ID="GridView1" runat="server">
                                     <Columns>
                                         <asp:BoundField DataField="member_id" HeaderText="Member ID" SortExpression="member_id" />
                                         <asp:BoundField DataField="member_name" HeaderText="Member Name" SortExpression="member_name" />

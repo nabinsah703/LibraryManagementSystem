@@ -151,7 +151,7 @@ namespace LMS_LibraryTraining.Admin
             cmd.Parameters.AddWithValue("@no_of_pages", txtpages.Text);
             cmd.Parameters.AddWithValue("@book_description", txtbookdescription.Text);
             cmd.Parameters.AddWithValue("@actual_stock", txtactualstock.Text);
-            cmd.Parameters.AddWithValue("@current_stock", txtcurrentstock.Text);
+            cmd.Parameters.AddWithValue("@current_stock", txtactualstock.Text);
 
         }
         private void AddBook()
