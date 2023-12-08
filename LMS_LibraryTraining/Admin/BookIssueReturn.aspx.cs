@@ -184,7 +184,42 @@ namespace LMS_LibraryTraining.Admin
 
         protected void btnreturnbook_Click(object sender, EventArgs e)
         {
+            if (IsBookExist() && IsMemberExist())
+            {
+                if (IsIssueEntryExist())
+                {
+                    ReturnBook();
+                    BindGridData();
+                }
+                else
+                {
+                    Response.Write("<script>alert('This Entry Does not Exist')</script>");
+                }
 
+            }
+            else
+            {
+                Response.Write("<script>alert('Wrong Member ID or Book ID')</script>");
+            }
+
+        }
+
+        private void ReturnBook()
+        {
+            cmd = new SqlCommand("sp_returnbook_updatestock", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@member_id", txtmemberID.Text.Trim());
+            cmd.Parameters.AddWithValue("@book_id", txtBookID.Text.Trim());
+
+            if (conn.InsertUpdateData(cmd))
+            {
+                Response.Write("<script>alert('Book Return succcessfully')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Error current sttock not updated')</script>");
+            }
         }
     }
 }
