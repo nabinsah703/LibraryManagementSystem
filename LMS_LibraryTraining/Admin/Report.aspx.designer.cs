@@ -11,34 +11,25 @@ namespace LMS_LibraryTraining.Admin
 {
 
 
-    public partial class AdminHome
+    public partial class Report
     {
 
         /// <summary>
-        /// lblIssuebook control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIssuebook;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// lblTotalbooks control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalbooks;
-
-        /// <summary>
-        /// lblamount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblamount;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

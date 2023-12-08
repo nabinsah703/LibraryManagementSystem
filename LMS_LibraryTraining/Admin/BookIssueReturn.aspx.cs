@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -188,8 +189,16 @@ namespace LMS_LibraryTraining.Admin
             {
                 if (IsIssueEntryExist())
                 {
-                    ReturnBook();
-                    BindGridData();
+                    if (CheckFine())
+                    {
+                        ReturnBook();
+                        BindGridData();
+                    }
+                    else
+                    {
+                        //open fine page where user can paid fine
+                        Response.Redirect("BookFineEntry.aspx?bid=" + txtBookID.Text + "&mid=" + txtmemberID.Text + "&day=" + Session["day"].ToString());
+                    }
                 }
                 else
                 {
@@ -226,7 +235,7 @@ namespace LMS_LibraryTraining.Admin
         {
             try
             {
-                if(e.Row.RowType==DataControlRowType.DataRow)
+                if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     //check your condition here 
                     DateTime dt = Convert.ToDateTime(e.Row.Cells[5].Text);
@@ -240,6 +249,34 @@ namespace LMS_LibraryTraining.Admin
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+
+        private bool CheckFine()
+        {
+            int days;
+            cmd = new SqlCommand("sp_GetNumOfDay", conn.GetConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@book_id", txtBookID.Text.Trim());
+            cmd.Parameters.AddWithValue("@member_id", txtmemberID.Text.Trim());
+            DataTable dtt = conn.Load_Data(cmd);
+            if (dtt.Rows.Count >= 1)
+            {
+                days = Convert.ToInt32(dtt.Rows[0]["number_of_day"].ToString());
+                Session["day"] = days;
+                if (days <= 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }

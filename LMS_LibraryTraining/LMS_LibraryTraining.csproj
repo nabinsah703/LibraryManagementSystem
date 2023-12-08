@@ -70,9 +70,13 @@
     <Content Include="Admin\AddAuthor.aspx" />
     <Content Include="Admin\AddPublisher.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\BookFineEntry.aspx" />
     <Content Include="Admin\BookIssueReturn.aspx" />
+    <Content Include="Admin\fine.aspx" />
+    <Content Include="Admin\Report.aspx" />
     <Content Include="Admin\updateMemberStatus.aspx" />
     <Content Include="Admin\AdminBookInventry.aspx" />
+    <Content Include="Admin\ViewBooks.aspx" />
     <Content Include="book_img\images.jpg" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -2198,12 +2202,33 @@
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\BookFineEntry.aspx.cs">
+      <DependentUpon>BookFineEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BookFineEntry.aspx.designer.cs">
+      <DependentUpon>BookFineEntry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\BookIssueReturn.aspx.cs">
       <DependentUpon>BookIssueReturn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\BookIssueReturn.aspx.designer.cs">
       <DependentUpon>BookIssueReturn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\fine.aspx.cs">
+      <DependentUpon>fine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\fine.aspx.designer.cs">
+      <DependentUpon>fine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\updateMemberStatus.aspx.cs">
       <DependentUpon>updateMemberStatus.aspx</DependentUpon>
@@ -2218,6 +2243,13 @@
     </Compile>
     <Compile Include="Admin\AdminBookInventry.aspx.designer.cs">
       <DependentUpon>AdminBookInventry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewBooks.aspx.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewBooks.aspx.designer.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
     <Compile Include="default.aspx.cs">
