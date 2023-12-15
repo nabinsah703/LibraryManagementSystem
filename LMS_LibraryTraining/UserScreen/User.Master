@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="UserReport.aspx"><b>Report</b></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="UserPayment.aspx"><b>Payment</b></a>
+                        </li>
                     </ul>
                     <!-- right menu-->
 
@@ -65,7 +68,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                 <%--   <div class="col-sm-2 border border-info">
+                    <%--   <div class="col-sm-2 border border-info">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Active</a>

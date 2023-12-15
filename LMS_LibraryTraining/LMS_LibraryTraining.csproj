@@ -2172,6 +2172,7 @@
     <Content Include="SlideImg\newyork.jpeg" />
     <Content Include="UserScreen\userBookView.aspx" />
     <Content Include="UserScreen\UserHome.aspx" />
+    <Content Include="UserScreen\UserPayment.aspx" />
     <Content Include="UserScreen\UserProfile.aspx" />
     <Content Include="UserScreen\UserReport.aspx" />
     <Content Include="Web.config" />
@@ -2321,6 +2322,13 @@
     </Compile>
     <Compile Include="UserScreen\UserHome.aspx.designer.cs">
       <DependentUpon>UserHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserScreen\UserPayment.aspx.cs">
+      <DependentUpon>UserPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserScreen\UserPayment.aspx.designer.cs">
+      <DependentUpon>UserPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserScreen\UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
