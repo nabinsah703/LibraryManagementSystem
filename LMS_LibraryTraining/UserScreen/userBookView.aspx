@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserScreen/User.Master" AutoEventWireup="true" CodeBehind="userBookView.aspx.cs" Inherits="LMS_LibraryTraining.UserScreen.userBookView" %>
+﻿<%@ Page Title="user Book" Language="C#" MasterPageFile="~/UserScreen/User.Master" AutoEventWireup="true" CodeBehind="userBookView.aspx.cs" Inherits="LMS_LibraryTraining.UserScreen.userBookView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <script src="../datatable/js/jquery.dataTables.min.js"></script>

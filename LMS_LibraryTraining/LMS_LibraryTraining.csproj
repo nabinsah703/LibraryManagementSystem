@@ -2173,6 +2173,7 @@
     <Content Include="UserScreen\userBookView.aspx" />
     <Content Include="UserScreen\UserHome.aspx" />
     <Content Include="UserScreen\UserProfile.aspx" />
+    <Content Include="UserScreen\UserReport.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2327,6 +2328,13 @@
     </Compile>
     <Compile Include="UserScreen\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserScreen\UserReport.aspx.cs">
+      <DependentUpon>UserReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserScreen\UserReport.aspx.designer.cs">
+      <DependentUpon>UserReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
