@@ -41,7 +41,7 @@
                             <a class="nav-link" href="UserProfile.aspx"><b>Profile</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><b>Library Application</b></a>
+                            <a class="nav-link" href="userBookView.aspx"><b>View Book</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><b>Archives</b></a>
